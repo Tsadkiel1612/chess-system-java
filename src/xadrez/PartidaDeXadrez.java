@@ -23,10 +23,13 @@ public class PartidaDeXadrez {
         }
         return mat;
     }
+    private void alocarNovaPeca (char coluna, int linha, PecaDeXadrez peca ){
+        tabuleiro.porPeca(peca, new XadrezPosicao(coluna, linha).paraPosicao());
+    }
 
     private void configuracaoInicial (){
-        tabuleiro.porPeca(new Torre(tabuleiro, Cor.BRANCA), new Posicao(2,1));
-        tabuleiro.porPeca(new Rei(tabuleiro, Cor.PRETA), new Posicao(0,4));
-        tabuleiro.porPeca(new Rei(tabuleiro, Cor.BRANCA), new Posicao(7,4));
+        alocarNovaPeca('b',6, new Torre(tabuleiro, Cor.BRANCA));
+        alocarNovaPeca('e', 8, new Rei(tabuleiro, Cor.PRETA));
+        alocarNovaPeca('e',1, new Rei(tabuleiro, Cor.BRANCA));
     }
 }
